@@ -3,6 +3,7 @@ from PIL import Image, ImageDraw, ImageOps, ImageFilter
 import requests
 from io import BytesIO
 import numpy as np
+from utils import set_background
 
 
 def get_resolution():
@@ -56,4 +57,5 @@ if __name__ == "__main__":
     image_masked = mask_image(sun_image, mask)
     wallpaper = create_wallpaper(image_masked, width=screen_width,
                                  height=screen_height)
-    wallpaper.save('teste', "PNG")
+    image_masked.save('teste', "PNG")
+    set_background('teste')
